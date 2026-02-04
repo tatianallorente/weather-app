@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+/* MUI Link */
+.MuiLink-root {
+  @apply text-inherit no-underline;
+}
