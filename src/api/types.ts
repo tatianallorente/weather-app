@@ -1,3 +1,7 @@
+export interface CommonResponse {
+  message: string;
+}
+
 export interface WeatherParams {
   q?: string;
   lat?: number;

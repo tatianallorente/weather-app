@@ -1,7 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Navigate, Route, Routes } from 'react-router';
-import { ApplicationLayout } from './components';
-import { Home, Settings, WeatherChart, WeatherMap } from './views';
+import { useEffect } from 'react';
+import { GlobalProvider, setGlobalErrorHandler, useGlobalContext } from '@/store';
+import { ComponentWithChildren } from './common/types';
+import { ErrorModal } from './components';
+import Router from './router';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,22 +19,31 @@ const queryClient = new QueryClient({
   },
 });
 
-const redirectionRoutes = <Route path="*" element={<Navigate to="/" />} />;
+function AppState({ children }: ComponentWithChildren) {
+  return <GlobalProvider>{children}</GlobalProvider>;
+}
+
+function AppContent() {
+  const { setErrorModal } = useGlobalContext();
+
+  useEffect(() => {
+    setGlobalErrorHandler((errorContent) => setErrorModal(errorContent));
+  }, [setErrorModal]);
+
+  return (
+    <>
+      <ErrorModal />
+      <Router />
+    </>
+  );
+}
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Routes>
-        <Route element={<ApplicationLayout />}>
-          {/* Redirections */}
-          {redirectionRoutes}
-          {/* Application routes */}
-          <Route path={'/'} element={<Home />} />
-          <Route path={'/map'} element={<WeatherMap />} />
-          <Route path={'/chart'} element={<WeatherChart />} />
-          <Route path={'/settings'} element={<Settings />} />
-        </Route>
-      </Routes>
+      <AppState>
+        <AppContent />
+      </AppState>
     </QueryClientProvider>
   );
 }

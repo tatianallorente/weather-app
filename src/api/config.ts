@@ -1,5 +1,7 @@
 import axios, { isAxiosError } from 'axios';
 import type { AxiosError } from 'axios';
+import { triggerGlobalError } from '@/store';
+import { CommonResponse } from './types';
 
 const authClient = axios.create({
   baseURL: import.meta.env.VITE_AUTH_URL,
@@ -21,6 +23,11 @@ apiClient.interceptors.response.use(
   (error: Error | AxiosError) => {
     const axiosError = error as AxiosError;
     if (isAxiosError(error) && axiosError.response) {
+      triggerGlobalError({
+        title: `Error ${axiosError.response.status}`,
+        message: (axiosError.response?.data as CommonResponse)?.message ?? axiosError.message,
+      });
+
       if (import.meta.env.DEV) {
         // eslint-disable-next-line no-console
         console.error('Error message: ', axiosError.response.data);
@@ -28,6 +35,10 @@ apiClient.interceptors.response.use(
 
       throw axiosError;
     } else {
+      triggerGlobalError({
+        title: error.name,
+        message: error.message,
+      });
       throw new Error(error.message);
     }
   }
