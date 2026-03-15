@@ -1,0 +1,31 @@
+@utility text-primary {
+  color: var(--primary-color);
+}
+
+@utility bg-primary {
+  background-color: var(--primary-color);
+}
+
+@utility border-primary {
+  border-color: var(--primary-color);
+}
+
+@utility text-secondary {
+  color: var(--secondary-color);
+}
+
+@utility bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+@utility border-secondary {
+  border-color: var(--secondary-color);
+}
+
+@utility bg-secondary-dark {
+  background-color: var(--secondary-dark-color);
+}
+
+@utility border-secondary {
+  border-color: var(--secondary-dark-color);
+}

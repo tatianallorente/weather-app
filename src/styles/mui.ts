@@ -7,6 +7,10 @@ const theme = createTheme({
     primary: {
       main: '#00bba7', // teal-500
     },
+    secondary: {
+      main: '#ffedd4', // orange-100
+      dark: '#ffd6a7', // orange-200
+    },
     error: {
       main: '#fb2c36', // red-500
     },

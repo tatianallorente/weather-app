@@ -34,7 +34,17 @@ export function Sidebar() {
     >
       <List className="pt-0!">
         {sidebarItems.map(({ id, label, Icon, pathname }) => (
-          <ListItem key={id} component={NavLink} to={pathname} disablePadding>
+          <ListItem
+            key={id}
+            component={NavLink}
+            to={pathname}
+            disablePadding
+            sx={{
+              '&.active': {
+                color: 'primary.main',
+              },
+            }}
+          >
             <ListItemButton className="gap-2">
               <Icon className="size-5 shrink-0" />
               <ListItemText primary={label} />

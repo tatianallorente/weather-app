@@ -1,5 +1,16 @@
 @import 'tailwindcss';
 
+@tailwind utilities;
+
+/* Utilities */
+@import './utilities.css';
+
+:root {
+  --primary-color: #00bba7; /* teal-500 */
+  --secondary-color: #ffedd4; /* orange-100 */
+  --secondary-dark-color: #ffd6a7; /* orange-200 */
+}
+
 /* MUI Link */
 .MuiLink-root {
   @apply text-inherit no-underline;

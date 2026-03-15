@@ -1,12 +1,13 @@
 import { colorSchemeLightCold, themeQuartz } from 'ag-grid-community';
 
 export const tableTheme = themeQuartz.withPart(colorSchemeLightCold).withParams({
-  headerBackgroundColor: 'var(--color-neutral-100)',
-  iconButtonHoverBackgroundColor: 'var(--color-neutral-200)',
-  headerColumnResizeHandleColor: 'var(--color-neutral-200)',
-  rowHoverColor: 'var(--color-neutral-200)',
+  headerBackgroundColor: 'var(--color-orange-200)',
+  iconButtonHoverBackgroundColor: 'var(--color-orange-100)',
+  headerColumnResizeHandleColor: 'var(--color-orange-100)',
+  rowHoverColor: 'var(--color-orange-50)',
   fontFamily: 'var(--default-font-family)',
-  borderColor: 'var(--color-neutral-200)',
+  borderColor: 'var(--color-orange-200)',
   textColor: 'var(--color-neutral-800)',
   rangeSelectionBorderColor: 'transparent',
+  backgroundColor: 'var(--color-orange-100)',
 });

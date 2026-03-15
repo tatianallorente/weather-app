@@ -8,10 +8,8 @@ export function ApplicationLayout() {
     <div className="flex min-h-screen w-full flex-col bg-white">
       <Navbar />
       <Sidebar />
-      <main className="flex flex-1 flex-col bg-neutral-100 px-4 py-4" style={{ marginLeft: DRAWER_WIDTH }}>
-        <div className="flex-1 overflow-auto rounded-lg border border-neutral-200 bg-white p-4">
-          <Outlet />
-        </div>
+      <main className="flex flex-1 flex-col bg-teal-50 px-4 py-4" style={{ marginLeft: DRAWER_WIDTH }}>
+        <Outlet />
       </main>
     </div>
   );
