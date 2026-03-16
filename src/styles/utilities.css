@@ -26,6 +26,6 @@
   background-color: var(--secondary-dark-color);
 }
 
-@utility border-secondary {
+@utility border-secondary-dark {
   border-color: var(--secondary-dark-color);
 }
