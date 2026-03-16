@@ -1,0 +1,27 @@
+import { Box, Typography } from '@mui/material';
+import type { ForecastResponse } from '@/api/types';
+import { useController } from './ForecastFiveDays.controller';
+
+interface ForecastFiveDaysProps {
+  forecastData?: ForecastResponse;
+}
+
+export function ForecastFiveDays({ forecastData }: ForecastFiveDaysProps) {
+  const { data, actions } = useController({ forecastData });
+
+  return (
+    <Box className="flex flex-col gap-4">
+      {data.summarized.map((day) => (
+        <Box key={day.dt} className="flex items-center gap-4 rounded bg-orange-200 p-4">
+          <Typography variant="body1" component="p" className="w-20 font-medium">
+            {actions.getDayLabel(day.dt)}
+          </Typography>
+          <img src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`} alt="icono" className="h-12 w-12" />
+          <Typography variant="body1" component="p" className="ml-auto font-semibold">
+            {day.tempMin}°C&nbsp;/&nbsp;{day.tempMax}°C
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
+}

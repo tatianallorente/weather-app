@@ -8,7 +8,7 @@ export interface WeatherParams {
   lon?: number;
   id?: number;
   zip?: string;
-  appid: string;
+  appid?: string;
   units?: 'standard' | 'metric' | 'imperial';
   lang?: string;
 }
