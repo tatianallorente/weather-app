@@ -17,12 +17,5 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
-    proxy: {
-      '/weather-api': {
-        target: 'https://api.openweathermap.org',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/weather-api/, ''),
-      },
-    },
   },
 });

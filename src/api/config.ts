@@ -9,8 +9,7 @@ const authClient = axios.create({
 });
 
 const apiClient = axios.create({
-  // baseURL: import.meta.env.VITE_API_URL,
-  baseURL: '/weather-api/data/2.5', // with proxy
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 300000, // 5 minutes
   params: {
     appid: import.meta.env.VITE_OPENWEATHER_KEY,
