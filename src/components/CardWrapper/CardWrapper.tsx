@@ -11,7 +11,7 @@ export function CardWrapper({ title = '', className = '', children }: CardWrappe
   return (
     <div className={`border-secondary-dark bg-secondary rounded-lg border p-4 ${className}`}>
       {title && (
-        <Typography variant="subtitle1" component="h4" className="text-neutral-400">
+        <Typography variant="subtitle1" component="h4" className="mb-2 text-neutral-400">
           {title}
         </Typography>
       )}

@@ -7,8 +7,8 @@ export function Home() {
 
   return (
     <>
-      <div className="mb-4 flex w-full max-w-full gap-4">
-        <div className="flex w-3/4 flex-col gap-4">
+      <div className="mb-6 flex w-full max-w-full gap-6">
+        <div className="flex w-3/4 flex-col gap-6">
           {/* Today */}
           <CardWrapper title="Weather today" className="flex-1">
             <p>TODO: WeatherToday </p>

@@ -8,7 +8,7 @@ export function ApplicationLayout() {
     <div className="flex min-h-screen w-full flex-col bg-white">
       <Navbar />
       <Sidebar />
-      <main className="flex flex-1 flex-col bg-teal-50 px-4 py-4" style={{ marginLeft: DRAWER_WIDTH }}>
+      <main className="flex flex-1 flex-col bg-teal-50 px-6 py-6" style={{ marginLeft: DRAWER_WIDTH }}>
         <Outlet />
       </main>
     </div>
