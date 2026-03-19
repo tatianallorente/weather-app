@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import type { ForecastResponse } from '@/api/types';
+import { iconBaseUrl } from '@/common/constants';
 import { useController } from './ForecastFiveDays.controller';
 
 interface ForecastFiveDaysProps {
@@ -16,7 +17,7 @@ export function ForecastFiveDays({ forecastData }: ForecastFiveDaysProps) {
           <Typography variant="body1" component="p" className="w-20 font-medium">
             {actions.getDayLabel(day.dt)}
           </Typography>
-          <img src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`} alt="icono" className="h-12 w-12" />
+          <img src={`${iconBaseUrl}${day.icon}@2x.png`} alt="icono" className="h-12 w-12" />
           <Typography variant="body1" component="p" className="ml-auto font-semibold">
             {day.tempMin}°C&nbsp;/&nbsp;{day.tempMax}°C
           </Typography>

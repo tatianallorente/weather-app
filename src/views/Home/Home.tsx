@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { CardWrapper, ForecastFiveDays, LoadingOverlay } from '@/components';
+import { CardWrapper, Forecast, ForecastFiveDays, LoadingOverlay } from '@/components';
 import { useController } from './Home.controller';
 
 export function Home() {
@@ -15,7 +15,7 @@ export function Home() {
           </CardWrapper>
           {/* Forecast */}
           <CardWrapper title="Forecast" className="flex-1">
-            {data.isLoading ? <LoadingOverlay /> : <p>TODO: Forecast </p>}
+            {data.isLoading ? <LoadingOverlay /> : <Forecast forecastData={data.forecastData} />}
           </CardWrapper>
         </div>
         {/* Forecast Five Days */}
