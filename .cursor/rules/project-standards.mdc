@@ -1,0 +1,50 @@
+---
+description: Core coding standards and patterns for the weather-app project
+alwaysApply: true
+---
+
+# Project Standards
+
+## Tech Stack
+
+- Vite + React + TypeScript for the frontend.
+- Axios HTTP clients defined in `src/api/config.ts`.
+- React Query for data fetching and caching.
+- Tailwind CSS utilities plus custom utilities from `src/styles/utilities.css`.
+- MUI (Material UI) components for typography and UI elements.
+
+## TypeScript
+
+- Avoid `any`. Prefer typed API responses from `src/api/types.ts` and explicit prop interfaces.
+- Handle possibly `undefined` values defensively (nullish coalescing, default values, or early returns) rather than assuming presence.
+- When adding new hooks (e.g. controllers), define small parameter/return interfaces instead of using raw objects.
+
+## React Components
+
+- Use **functional components** with named exports.
+- Keep components "dumb" where possible; move data fetching and transformation into hooks/controllers (`*.controller.ts`) or API modules.
+- For shared layout, use wrappers like `CardWrapper` instead of duplicating card markup across components.
+- Prefer composition over deeply nested props; e.g. pass data into children instead of letting children fetch their own data when possible.
+
+## Styling
+
+- Use Tailwind utility classes for layout and spacing.
+- Prefer project utilities from `src/styles/utilities.css` for theme colors (e.g. `bg-primary`, `bg-secondary`, `border-secondary`) instead of hardcoded color values.
+- When mixing MUI + Tailwind, use MUI for semantic components (`Typography`, `Box`) and Tailwind for layout utilities (`flex`, `gap-*`, `p-*`, etc.).
+
+## API & Error Handling
+
+- Reuse `apiClient` and `authClient` from `src/api/config.ts` instead of creating new Axios instances.
+- Add new API response shapes to `src/api/types.ts` and use them throughout the app.
+- Use the existing interceptor + `triggerGlobalError` pattern for handling API errors, rather than ad-hoc `console.log`/`alert`.
+
+## Environment Variables
+
+- Use environment variables (e.g. `VITE_API_URL`, `VITE_OPENWEATHER_KEY`) for external endpoints and secrets.
+- Never hardcode API keys or base URLs in components.
+
+## Loading & UI States
+
+- Prefer reusable components like `LoadingOverlay` for loading states.
+- Prefer shared layout wrappers like `CardWrapper` instead of duplicating card markup across components.
+
