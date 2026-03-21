@@ -13,7 +13,7 @@ interface WeatherStatCardProps {
 
 function WeatherStatCard({ Icon, label, value, unit }: WeatherStatCardProps) {
   return (
-    <div className="bg-secondary-dark flex min-w-26 flex-1 flex-col items-center rounded-lg px-6 py-4">
+    <div className="bg-secondary-dark flex min-w-26 flex-1 flex-col items-center justify-center rounded-lg px-6 py-4">
       <div className="flex items-center gap-1">
         <Icon className="size-4 shrink-0" />
         <Typography variant="body2">{label}</Typography>
@@ -39,8 +39,8 @@ export function WeatherToday() {
   }
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-6">
-      <div className="grid flex-1 grid-cols-1 gap-2 sm:grid-cols-2">
+    <div className="flex flex-wrap items-stretch justify-between gap-6">
+      <div className="grid min-w-26 flex-1 grid-cols-[repeat(1,minmax(104px,1fr))] gap-2 sm:grid-cols-[repeat(2,minmax(104px,1fr))]">
         <WeatherStatCard Icon={Droplets} label="Humidity" value={main?.humidity} unit={UNITS.humidity} />
         <WeatherStatCard Icon={WindArrowDown} label="Pressure" value={main?.pressure} unit={UNITS.pressure} />
         <WeatherStatCard
