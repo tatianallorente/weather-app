@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { CardWrapper, Forecast, ForecastFiveDays, LoadingOverlay } from '@/components';
+import { CardWrapper, Forecast, ForecastFiveDays, LoadingOverlay, WeatherToday } from '@/components';
 import { useController } from './Home.controller';
 
 export function Home() {
@@ -11,7 +11,7 @@ export function Home() {
         <div className="flex w-3/4 flex-col gap-6">
           {/* Today */}
           <CardWrapper title="Weather today" className="flex-1">
-            <p>TODO: WeatherToday </p>
+            <WeatherToday />
           </CardWrapper>
           {/* Forecast */}
           <CardWrapper title="Forecast" className="flex-1">
