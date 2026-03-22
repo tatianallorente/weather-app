@@ -13,7 +13,7 @@ export function ForecastFiveDays({ forecastData }: ForecastFiveDaysProps) {
   return (
     <Box className="flex flex-col gap-4">
       {data.summarized.map((day) => (
-        <Box key={day.dt} className="flex items-center gap-4 rounded bg-orange-200 p-4">
+        <Box key={day.dt} className="flex items-center gap-4 rounded-lg bg-orange-200 p-4">
           <Typography variant="body1" component="p" className="w-20 font-medium capitalize">
             {actions.getDayLabel(day.dt)}
           </Typography>

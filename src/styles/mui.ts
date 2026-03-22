@@ -19,6 +19,9 @@ const theme = createTheme({
     },
   },
   spacing: 4, // 4px base spacing like tailwind
+  shape: {
+    borderRadius: 8,
+  },
 });
 
 const customTheme = {
