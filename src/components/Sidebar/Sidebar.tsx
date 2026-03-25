@@ -1,7 +1,7 @@
 import { Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { ChartSpline, CloudSunRain, Map, Settings2 } from 'lucide-react';
 import { NavLink } from 'react-router';
-import { DRAWER_WIDTH, NAVBAR_HEIGTH } from '@/common/constants';
+import { DRAWER_TRANSITION, DRAWER_WIDTH, DRAWER_WIDTH_COLLAPSED, NAVBAR_HEIGTH } from '@/common/constants';
 import { SvgIcon } from '@/common/types';
 
 interface SidebarItemProps {
@@ -26,8 +26,13 @@ export function Sidebar() {
       slotProps={{
         paper: {
           sx: {
-            width: DRAWER_WIDTH,
+            width: {
+              xs: DRAWER_WIDTH_COLLAPSED,
+              md: DRAWER_WIDTH,
+            },
             paddingTop: NAVBAR_HEIGTH,
+            overflowX: 'hidden',
+            transition: `width ${DRAWER_TRANSITION}`,
           },
         },
       }}
@@ -45,9 +50,14 @@ export function Sidebar() {
               },
             }}
           >
-            <ListItemButton className="gap-2">
+            <ListItemButton
+              className="h-12 gap-2"
+              sx={{
+                justifyContent: { xs: 'center', md: 'flex-start' },
+              }}
+            >
               <Icon className="size-5 shrink-0" />
-              <ListItemText primary={label} />
+              <ListItemText primary={label} sx={{ display: { xs: 'none', md: 'block' } }} />
             </ListItemButton>
           </ListItem>
         ))}
